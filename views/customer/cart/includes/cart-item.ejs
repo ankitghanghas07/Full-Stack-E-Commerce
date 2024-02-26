@@ -1,0 +1,16 @@
+<article class="cart-item">
+  <img src="<%= cartItem.product.imageURL %>" alt="product image" />
+  <div class="cart-item-info">
+    <h2><%= cartItem.product.title %></h2>
+    <p>
+      <span>$<%= cartItem.totalPrice %></span>
+      <input
+        type="number"
+        value="<%= cartItem.quantity %>"
+        data-productid="<%= cartItem.product.id %>"
+        data-csrf="<%= locals.csrfToken %>"
+        min="0"
+      />
+    </p>
+  </div>
+</article>

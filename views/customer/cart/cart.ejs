@@ -1,0 +1,24 @@
+<%- include('../../shared/includes/head', {title : 'Cart'}) %>
+<link rel="stylesheet" href="/styles/cart.css">
+<script src="/scripts/cart-update.js" defer ></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header') %>
+    <main>
+        <ul id="cart-items">
+            <% for(const item of locals.cart.items) { %>
+                <li>
+                    <%- include('includes/cart-item', {cartItem : item} ) %>
+                </li>
+            <% } %>
+            <li id="Total">
+                <span>Total $<%= locals.cart.totalPrice %></span>
+                <form action="/orders" method="post">
+                    <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                    <button class="btn" >Buy Products</button>
+                </form>
+            </li>
+        </ul>
+    </main>
+
+<%- include('../../shared/includes/footer') %>

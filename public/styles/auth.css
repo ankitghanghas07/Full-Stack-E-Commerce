@@ -1,0 +1,14 @@
+h1{
+    text-align: center;
+    color: var(--color-primary-500);
+}
+
+form{
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    max-width: 25rem;
+    background-color: var(--color-gray-700);
+    border-radius: var(--border-radius-small);
+    padding: var(--space-4);
+}

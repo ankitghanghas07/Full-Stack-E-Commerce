@@ -1,0 +1,7 @@
+<ol class="order-list">
+    <% for(const order of orders) { %>
+        <li>
+            <%- include('order-item', {order : order}) %> 
+        </li>
+    <% } %>
+</ol>

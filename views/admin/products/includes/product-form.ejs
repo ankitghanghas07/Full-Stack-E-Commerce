@@ -1,0 +1,35 @@
+<!-- for file upload, we have to change enctype to multipart/form-data, and in that case, adding it as a query parameter is a work around provided by the csurf package -->
+<form action="<%=submitPath%>?_csrf=<%= locals.csrfToken %>" method="post" enctype="multipart/form-data" >
+    <p>
+        <label for="title">Title</label>
+        <input type="text" name="title" value="<%=product.title%>" id="title" required>
+    </p>
+
+    <div id="image-preview-control" >
+        <p>
+            <label for="image">Image</label>
+            <input type="file" name="image" id="image" accept="image/png,image/jpg" <%if(!product.title){%> required <%}%>  >
+        </p>
+        <img src="" alt="Selected Image">
+    </div>
+    <p>
+        <label for="summary">Summary</label>
+        <input type="text" id="summary" name="summary" value="<%= product.summary %>">
+    </p>
+
+    <p>
+        <label for="description">Description</label>
+        <textarea name="description" id="description" rows="7"><%= product.description %></textarea>
+    </p>
+
+    <p>
+        <label for="price">Price</label>
+        <input type="number" name="price" id="price" value="<%= product.price %>" step="1" min="1" >
+    </p>
+    
+    <p>
+        <button type="reset" class="btn btn-alt">Reset</button>
+        <button type="submit"  class="btn" >Save Product</button>
+    </p>
+
+</form>
